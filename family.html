@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family | Darin's Diary</title>
+<meta name="description" content="Personal Website">
+<meta name="keywords" content="personal, portfolio, student">
+<meta name="author" content="Darin">
+<link rel="stylesheet" href="style.css">
+<style>
+
+
+
+</style>
+</head>
+<body id="top">
+
+<a href="#top" class="back-to-top">↑</a>
+
+<nav>
+  <div class="logo">DARIN DIARY</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="profile.html">About Me</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="family.html">Family</a></li>
+    <li><a href="friends.html">Friends</a></li>
+    <li><a href="hobby.html">Hobby</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<audio id="bgAudio" autoplay loop hidden>
+  <source src="audio/music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="family-page">
+  <p class="family-page-title">-FAMILY STICK TOGETHER-</p>
+  <h1>My Family</h1>
+
+  <!-- Father: image LEFT, text RIGHT -->
+  <div class="family-member">
+    <img src="images/father.jpg" alt="Father">
+    <div class="family-info">
+      <p class="role">Father</p>
+      <h3>Noraidy Bin Aman</h3>
+      <p>Occupation: Electrical Engineer</p>
+      <p>My favourite banker.</p>
+    </div>
+  </div>
+
+  <div class="family-divider"></div>
+
+  <!-- Mother: image RIGHT, text LEFT -->
+  <div class="family-member reverse">
+    <img src="images/mother.jpg" alt="Mother">
+    <div class="family-info">
+      <p class="role">Mother</p>
+      <h3>Nor Shabina Binti Abdullah</h3>
+      <p>Occupation: Outlet Manager</p>
+      <p>My lovely mama.</p>
+    </div>
+  </div>
+
+  <div class="family-divider"></div>
+
+  <!-- Brother: image LEFT, text RIGHT -->
+  <div class="family-member">
+    <img src="images/brother.jpg" alt="Brother">
+    <div class="family-info">
+      <p class="role">Big Brother</p>
+      <h3>Mohammad Fariz Daniel Bin Noraidy</h3>
+      <p>Occupation: Facilities Engineer</p>
+      <p>Annoying brother.</p>
+    </div>
+  </div>
+
+  <div class="family-divider"></div>
+
+  <!-- Darin: image RIGHT, text LEFT -->
+  <div class="family-member reverse">
+    <img src="images/darin.jpg" alt="Me">
+    <div class="family-info">
+      <p class="role">Beautiful Daughter</p>
+      <h3>Darin</h3>
+      <p>Study in: UiTM Kedah</p>
+      <p>Always have been the best daughter they had.</p>
+    </div>
+  </div>
+
+  <div class="family-divider"></div>
+
+  <!-- Sister: image LEFT, text RIGHT -->
+  <div class="family-member">
+    <img src="images/sister.jpg" alt="Sister">
+    <div class="family-info">
+      <p class="role">Sister</p>
+      <h3>Nayli Nur Zahirah Binti Noraidy</h3>
+      <p>Study in: SMK Pasir Gudang</p>
+      <p>My best friend.</p>
+    </div>
+  </div>
+
+  <div class="family-divider"></div>
+
+  <!-- Little Brother: image RIGHT, text LEFT -->
+  <div class="family-member reverse">
+    <img src="images/lilbrother.jpg" alt="Little Brother">
+    <div class="family-info">
+      <p class="role">Little Brother</p>
+      <h3>Muhammad Niyaz Azhad Bin Noraidy</h3>
+      <p>Cute little brother.</p>
+    </div>
+  </div>
+
+  <div class="family-divider"></div>
+
+  <!-- Video Section -->
+  <div class="family-video-section">
+    <p class="video-label">Meet My Family</p>
+    <h2>A Little Introduction</h2>
+    <video src="images/familyvl.mp4" controls></video>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Darin | Recommended Browser: Chrome | Last Updated: June 2026</p>
+</footer>
+
+<script>
+  const bgAudio = document.getElementById('bgAudio');
+  document.addEventListener('click', () => {
+    if (bgAudio.paused) bgAudio.play().catch(() => {});
+  }, { once: true });
+  document.querySelectorAll('video').forEach(video => {
+    video.addEventListener('play', () => { bgAudio.pause(); });
+    video.addEventListener('pause', () => { bgAudio.play().catch(() => {}); });
+    video.addEventListener('ended', () => { bgAudio.play().catch(() => {}); });
+  });
+
+  // Page fade out on link click
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto')) {
+        e.preventDefault();
+        document.body.style.transition = 'opacity 0.4s ease';
+        document.body.style.opacity = '0';
+        setTimeout(() => { window.location.href = href; }, 400);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

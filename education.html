@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Personal Website</title>
+
+<meta name="description" content="Personal Website">
+<meta name="keywords" content="personal, portfolio, student">
+<meta name="author" content="Your Name">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">DARIN DIARY</div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="family.html">Family</a></li>
+        <li><a href="friends.html">Friends</a></li>
+        <li><a href="hobby.html">Hobby</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+
+    </ul>
+</nav>
+
+<audio autoplay loop hidden>
+    <source src="audio/music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="edu-page">
+  <p class="edu-page-title">My Journey</p>
+  <h1>Education</h1>
+
+  <div class="education-slider">
+
+    <div class="edu-slide active">
+      <img src="images/praschool.jpg" class="school-logo" alt="Tadika Sistem">
+      <h2><a href="https://share.google/7mwvgumiKdaKNB9wY" target="_blank">Tadika Sistem</a></h2>
+      <p>My preschool when I was six years old.</p>
+      <a href="https://share.google/7mwvgumiKdaKNB9wY" target="_blank" class="visit-btn">Click here!</a>
+    </div>
+
+    <div class="edu-slide">
+      <img src="images/sjkc.png" class="school-logo" alt="SJKC Masai">
+      <h2><a href="https://share.google/MZxh8Hc3bNZYGVJhj" target="_blank">SJKC Masai</a></h2>
+      <p>I studied here during my primary school years for three years, from the age of seven until nine.</p>
+      <a href="https://share.google/MZxh8Hc3bNZYGVJhj" target="_blank" class="visit-btn">Click here!</a>
+    </div>
+
+    <div class="edu-slide">
+      <img src="images/sktb.jpg" class="school-logo" alt="SK Taman Bukit Dahlia">
+      <h2><a href="https://share.google/hogrpxezgOOmug9SA" target="_blank">SK Taman Bukit Dahlia</a></h2>
+      <p>I continued for another three years here.</p>
+      <a href="https://share.google/hogrpxezgOOmug9SA" target="_blank" class="visit-btn">Click here!</a>
+    </div>
+
+    <div class="edu-slide">
+      <img src="images/smkpg.jpg" class="school-logo" alt="SMK Pasir Gudang">
+      <h2><a href="https://share.google/yJMl505CUCCP28RtU" target="_blank">SMK Pasir Gudang</a></h2>
+      <p>My secondary school years helped shape who I am today.</p>
+      <a href="https://share.google/yJMl505CUCCP28RtU" target="_blank" class="visit-btn">Click here!</a>
+    </div>
+
+    <div class="edu-slide">
+      <img src="images/uitm.png" class="school-logo" alt="UiTM Kedah">
+      <h2><a href="https://share.google/YMIp5Bs6oRyIV59On" target="_blank">Universiti Teknologi MARA (UiTM) Kedah</a></h2>
+      <p>My current academic journey as a university student.</p>
+      <a href="https://kedah.uitm.edu.my" target="_blank" class="visit-btn">Click here!</a>
+    </div>
+
+  </div>
+
+  <div class="slider-nav">
+    <button class="arrow-btn" onclick="changeSlide(-1)">&#8592;</button>
+    <div class="dots">
+      <span class="dot active" onclick="showEduSlide(0)"></span>
+      <span class="dot" onclick="showEduSlide(1)"></span>
+      <span class="dot" onclick="showEduSlide(2)"></span>
+      <span class="dot" onclick="showEduSlide(3)"></span>
+      <span class="dot" onclick="showEduSlide(4)"></span>
+    </div>
+    <button class="arrow-btn" onclick="changeSlide(1)">&#8594;</button>
+  </div>
+  <p class="slide-counter" id="counter">01 / 05</p>
+
+</div>
+
+<footer>
+  <p>© 2026 Darin | Recommended Browser: Chrome | Last Updated: June 2026</p>
+
+<script>
+  let currentSlide = 0;
+  const eduSlides = document.querySelectorAll(".edu-slide");
+  const eduDots   = document.querySelectorAll(".dot");
+  const counter   = document.getElementById("counter");
+
+  function showEduSlide(index) {
+    eduSlides.forEach(s => s.classList.remove("active"));
+    eduDots.forEach(d => d.classList.remove("active"));
+    eduSlides[index].classList.add("active");
+    eduDots[index].classList.add("active");
+    currentSlide = index;
+    counter.textContent = String(index + 1).padStart(2,"0") + " / 05";
+  }
+
+  function changeSlide(dir) {
+    let next = (currentSlide + dir + eduSlides.length) % eduSlides.length;
+    showEduSlide(next);
+  }
+</script>
+</body>
